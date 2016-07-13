@@ -10,8 +10,7 @@ namespace aspnet_core_10_ex.Controllers
     {
         public IActionResult Index()
         {
-            Console.WriteLine("Index called");
-            /*string frameworkVersion = "Not available";
+            string frameworkVersion = "Not available";
 
             if (Environment.GetEnvironmentVariable("ASPNET_VERSION") != null)
                 frameworkVersion = "Current application running on ASP.NET " + Environment.GetEnvironmentVariable("ASPNET_VERSION").ToString();
@@ -22,7 +21,11 @@ namespace aspnet_core_10_ex.Controllers
             foreach (System.Collections.DictionaryEntry de in Environment.GetEnvironmentVariables())
                 environmentVariables += string.Format("{0} = {1}\n", de.Key.ToString().Trim(), de.Value.ToString().Trim());
 
-            ViewBag.EnvironmentVariables = environmentVariables;*/
+            ViewBag.EnvironmentVariables = environmentVariables;
+
+            Console.WriteLine("FrameworkVersion: "+ frameworkVersion);
+            Console.WriteLine("EnvironmentVariables: " + environmentVariables);
+
             return View();
         }
 
