@@ -10,6 +10,7 @@ namespace aspnet_core_10_ex.Controllers
     {
         public IActionResult Index()
         {
+            Console.WriteLine("Index called");
             /*string frameworkVersion = "Not available";
 
             if (Environment.GetEnvironmentVariable("ASPNET_VERSION") != null)

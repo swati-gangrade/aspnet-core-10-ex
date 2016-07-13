@@ -37,16 +37,20 @@ namespace aspnet_core_10_ex
         {
             try
             {
+                Console.WriteLine("Configure called.");
+
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
                 loggerFactory.AddDebug();
 
                 if (env.IsDevelopment())
                 {
+                    Console.WriteLine("Dev Environment.");
                     app.UseDeveloperExceptionPage();
                     app.UseBrowserLink();
                 }
                 else
                 {
+                    Console.WriteLine("Not Dev Environment.");
                     app.UseExceptionHandler("/Home/Error");
                 }
 
@@ -61,6 +65,8 @@ namespace aspnet_core_10_ex
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
+
                 app.Run(async (context) =>
                 {
                     context.Response.ContentType = "text/html";
