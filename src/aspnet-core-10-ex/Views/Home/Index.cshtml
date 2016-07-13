@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Welcome to OpenShift";
+}
+
+<section class="container">
+    <hgroup>
+        <h1>Welcome to your ASP.NET Core 1.0 application on OpenShift</h1>
+    </hgroup>
+
+
+    <div class="row">
+        <section class="col-xs-12 col-sm-6 col-md-6">
+            <section>
+                <h2>How to use this example application</h2>
+                <p>For instructions on how to use this application with OpenShift, start by reading the <a href="http://docs.openshift.org/latest/dev_guide/templates.html#using-the-quickstart-templates" target="_blank">Developer Guide</a>.</p>
+
+                <h2>.NET Framework Version</h2>
+                <p>
+                    @ViewBag.FrameworkVersion
+                </p>
+
+                <h2>Application Environment Variables</h2>
+                <b>NOTE: Environment variables may include secure content. Do not expose all your environment variables.</b>
+                <br />
+                <br />
+                <p>
+                    @ViewBag.EnvironmentVariables
+                </p>
+            </section>
+
+        </section>
+        <section class="col-xs-12 col-sm-6 col-md-6">
+
+            <h2>Managing your application</h2>
+
+            <p>Documentation on how to manage your application from the Web Console or Command Line is available at the <a href="http://docs.openshift.org/latest/dev_guide/overview.html" target="_blank">Developer Guide</a>.</p>
+
+            <h3>Web Console</h3>
+            <p>You can use the Web Console to view the state of your application components and launch new builds.</p>
+
+            <h3>Command Line</h3>
+            <p>With the <a href="http://docs.openshift.org/latest/cli_reference/overview.html" target="_blank">OpenShift command line interface</a> (CLI), you can create applications and manage projects from a terminal.</p>
+
+            <h3>Click2Cloud's OpenShift Tool for Visual Studio</h3>
+            <p>With the <a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a>, you can create applications and manage projects right from your Visual Studio IDE.</p>
+            <p>Watch Click2Cloud's OpenShift Tool in action on <a href="https://www.youtube.com/playlist?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" target="_blank">YouTube</a>.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" frameborder="0" allowfullscreen></iframe>
+
+            <h2>Development Resources</h2>
+            <ul>
+                <li><a href="http://docs.openshift.org/latest/welcome/index.html" target="_blank">OpenShift Documentation</a></li>
+                <li><a href="https://github.com/openshift/origin" target="_blank">Openshift Origin GitHub</a></li>
+                <li><a href="https://github.com/openshift/source-to-image" target="_blank">Source To Image GitHub</a></li>
+                <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/nodejs.html" target="_blank">Getting Started with Node.js on OpenShift</a></li>
+                <li><a href="http://stackoverflow.com/questions/tagged/openshift" target="_blank">Stack Overflow questions for OpenShift</a></li>
+                <li><a href="http://git-scm.com/documentation" target="_blank">Git documentation</a></li>
+                <li><a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a></li>
+                <li><a href="http://click2cloud.net/downloads/Click2Cloud_OpenShift3.X_Enterprise_VisualStudio2015_Tool_UserGuide_V1.0.pdf" target="_blank">Click2Cloud's OpenShift Tool Documentation</a></li>
+            </ul>
+        </section>
+    </div>
+
+</section>
+
