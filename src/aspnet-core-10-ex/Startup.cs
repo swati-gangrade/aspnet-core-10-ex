@@ -35,42 +35,39 @@ namespace aspnet_core_10_ex
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
+            try
             {
-                app.UseDeveloperExceptionPage();
+                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                loggerFactory.AddDebug();
+
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                    app.UseBrowserLink();
+                }
+                else
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                }
+
+                app.UseStaticFiles();
+
+                app.UseMvc(routes =>
+                {
+                    routes.MapRoute(
+                        name: "default",
+                        template: "{controller=Home}/{action=Index}/{id?}");
+                });
             }
-
-            app.Run(async (context) =>
+            catch (Exception ex)
             {
-                context.Response.ContentType = "text/html";
-                await context.Response.WriteAsync("<span style='font-size:x-large;font-weight:bold;'>Hello World!</span>");
-            });
-            
-            return;
-            
-            /*loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                app.Run(async (context) =>
+                {
+                    context.Response.ContentType = "text/html";
+                    await context.Response.WriteAsync(ex.Message);
+                }); 
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });*/
+           
         }
     }
 }
