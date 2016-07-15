@@ -23,9 +23,6 @@ namespace aspnet_core_10_ex.Controllers
 
             ViewBag.EnvironmentVariables = environmentVariables;
 
-            Console.WriteLine("FrameworkVersion: "+ frameworkVersion);
-            Console.WriteLine("EnvironmentVariables: " + environmentVariables);
-
             return View();
         }
 

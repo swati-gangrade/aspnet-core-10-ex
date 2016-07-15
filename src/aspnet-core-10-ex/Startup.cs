@@ -35,45 +35,31 @@ namespace aspnet_core_10_ex
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            try
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
+            /*if (env.IsDevelopment())
             {
-                Console.WriteLine("Configure called.");
-
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                loggerFactory.AddDebug();
-
-                if (env.IsDevelopment())
-                {
-                    Console.WriteLine("Dev Environment.");
-                    app.UseDeveloperExceptionPage();
-                    app.UseBrowserLink();
-                }
-                else
-                {
-                    Console.WriteLine("Not Dev Environment.");
-                    app.UseExceptionHandler("/Home/Error");
-                }
-
-                app.UseStaticFiles();
-
-                app.UseMvc(routes =>
-                {
-                    routes.MapRoute(
-                        name: "default",
-                        template: "{controller=Home}/{action=Index}/{id?}");
-                });
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                app.UseExceptionHandler("/Home/Error");
+            }*/
 
-                app.Run(async (context) =>
-                {
-                    context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(ex.Message);
-                }); 
-            }
-           
+            app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
+
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
